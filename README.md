@@ -1,6 +1,6 @@
-# go-zero-boat
+# go-zero-boat  
 
-go-zero是一个很好用的微服务框架，在使用的时候，希望能有一个快速启动，新项目拿来就能用的模板工程，于是go-zero-boat就诞生了，旨在轻便，容易理解，刚好够用。
+go-zero是一个很好用的微服务框架，在使用的时候，希望能有一个快速启动，新项目拿来就能用的模板工程，于是 go-zero-boat 就诞生了，旨在轻便，容易理解，刚好够用。
 
 ### 依赖版本
 
@@ -12,6 +12,26 @@ go-zero是一个很好用的微服务框架，在使用的时候，希望能有�
 ### 感谢
 [go-zero](https://github.com/zeromicro/go-zero)     
 [go-zero-looklook](https://github.com/Mikaelemmmm/go-zero-looklook)
+
+### 快速开始
+```
+# 启动 etcd
+$ etcd   
+# 使用 modd 进行启动
+$ modd
+Starting a rpc server at 0.0.0.0:8080...
+Starting server at 0.0.0.0:8888...
+# 测试服务接口
+$ curl --location 'localhost:8888/user/detail/0'
+{"id":1,"name":"some lucky user..."}%
+$ curl --location 'localhost:8888/user/test/err'
+{"code":10001,"msg":"testErr Msg"}%
+```
+
+### goctl生成代码
++ **gateway** 编写 gateway/apis/*.api 文件，import到 gateway/index.api，执行 `bash gen-api.sh`.
++ **rpc** 在 rpc 目录下找到服务目录，编写 rpc/**/*.proto 文件，在 `gen-rpc.sh` 中修改 `target` 变量为服务名，执行 `bash gen-api.sh` 
+
 
 #### 目录
 ```
@@ -56,8 +76,7 @@ go-zero是一个很好用的微服务框架，在使用的时候，希望能有�
 #### 错误处理
 借鉴 looklook 项目的思想，定义rpc和api共用的errCode模块，稍有不同的是looklook项目采用在handler模板代码处修改，本着goctl 原生模板可用尽量不动的前提，结合go-zero官网的错误处理拦截器，最终将错误处理放在了 `httpx.SetErrorHandlerCtx(xerr.Handler)`
 
-#### 开发环境
-日常开发使用热加载
+#### 热加载
 1. 使用 [air](https://github.com/cosmtrek/air) 配置示例如下
    ```
     #!/bin/bash

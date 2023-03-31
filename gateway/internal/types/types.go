@@ -9,3 +9,12 @@ type UserResp struct {
 	Id   int64  `json:"id"`
 	Name string `json:"name"`
 }
+
+type PetReq struct {
+	Id int64 `path:"id"`
+}
+
+type PetResp struct {
+	Id   int64  `json:"id"`
+	Name string `json:"name"`
+}

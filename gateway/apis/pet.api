@@ -1,0 +1,22 @@
+type (
+	PetReq {
+		Id  int64 `path:"id"`
+	}
+	PetResp {
+        Id    int64  `json:"id"`
+		Name  string `json:"name"`
+		
+	}
+)
+
+@server(
+	prefix: pet
+	group: pet
+)
+service gateway {
+	
+	@doc "get pet profile"
+	@handler profile
+	get /profile/:id (PetReq) returns (PetResp)
+	
+}

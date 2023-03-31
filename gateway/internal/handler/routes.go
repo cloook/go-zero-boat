@@ -4,6 +4,7 @@ package handler
 import (
 	"net/http"
 
+	pet "boat/gateway/internal/handler/pet"
 	user "boat/gateway/internal/handler/user"
 	"boat/gateway/internal/svc"
 
@@ -25,5 +26,16 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 		},
 		rest.WithPrefix("/user"),
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodGet,
+				Path:    "/profile/:id",
+				Handler: pet.ProfileHandler(serverCtx),
+			},
+		},
+		rest.WithPrefix("/pet"),
 	)
 }

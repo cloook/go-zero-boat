@@ -8,4 +8,5 @@ info(
 
 import (
 	"apis/user.api"
+	"apis/pet.api"
 )
