@@ -14,6 +14,7 @@ go-zero是一个很好用的微服务框架，在使用的时候，希望能有�
 [go-zero-looklook](https://github.com/Mikaelemmmm/go-zero-looklook)
 
 #### 目录
+```
 .  
 ├── README.md  
 ├── common  
@@ -44,6 +45,7 @@ go-zero是一个很好用的微服务框架，在使用的时候，希望能有�
     │   └── pet.proto  
     └── user  
          └── user.proto  
+```
 
 #### 网关
 在考虑rpc网关的时候，参考 [looklook](https://github.com/Mikaelemmmm/go-zero-looklook/blob/main/doc/chinese/02-nginx%E7%BD%91%E5%85%B3.md) 使用nginx做网关是一种很好的思路，但是这里依然选择使用api做网关，在api层可以考虑做统一鉴权，日志收集，限流等等，可以跟rpc服务做一个切割。  
