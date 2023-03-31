@@ -1,0 +1,18 @@
+# idea
+.idea
+.idea/
+*.iml
+.DS_Store
+**/.DS_Store
+
+build/*
+logs/*
+
+# gitlab ci
+.cache
+
+#vscode
+.vscode
+.vscode/
+
+

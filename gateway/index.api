@@ -1,0 +1,11 @@
+info(
+	title: "gateway"
+	desc: "gateway"
+	author: "yang"
+	email: ""
+	version: "v1"
+)
+
+import (
+	"apis/user.api"
+)

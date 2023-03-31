@@ -1,0 +1,21 @@
+Name: gateway
+Host: 0.0.0.0
+Port: 8888
+
+UserRpc:
+  Etcd:
+    Hosts:
+    - 127.0.0.1:2379
+    Key: user.rpc
+
+Log:
+  ServiceName: gateway
+  Level: info
+  Mode: volume
+  Encoding: plain
+  KeepDays: 30
+
+#jwtAuth
+JwtAuth:
+  AccessSecret: a39-60-4e13-5a10da0
+  AccessExpire: 31536000

@@ -1,0 +1,28 @@
+type (
+	IdReq {
+		Id  int64 `path:"id"`
+	}
+	UserResp {
+        Id    int64  `json:"id"`
+		Name  string `json:"name"`
+		
+	}
+)
+
+//need login
+@server(
+	prefix: user
+	group: user
+	// jwt: JwtAuth
+)
+service gateway {
+	
+	@doc "get user info"
+	@handler detail
+	get /detail/:id (IdReq) returns (UserResp)
+
+    @doc "test err"
+	@handler testErr
+	get /test/err returns (UserResp)
+	
+}
